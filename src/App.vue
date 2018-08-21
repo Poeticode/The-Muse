@@ -27,6 +27,7 @@ export default {
 }
 .wrapper {
   min-height: 100vh;
+  height:100%;
   margin-bottom: -200px;
 }
 

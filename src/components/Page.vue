@@ -1,24 +1,18 @@
 <template>
-  <article class="cf ph3 ph5-ns pv5">
-    <header class="fn fl-ns w-50-ns pr4-ns">
-      <h1 class="mb3 mt0 lh-title">"What's this all about?"</h1>
-      <time class="f6 ttu tracked gray">— Silas Tippens</time>
-    </header>
+  <article class="cf ph3 ph5-ns pv3 pv5-ns about fn-ns fl-s">
+    <page-header v-bind:blurb="content.blurb" v-bind:author="content.author" />
     <div class="fn fl-ns w-50-ns">
-      <p class="lh-copy measure mt4 mt0-ns">
-        The Muse is both a community and a weekly workshop. We'll engage in short creative activities to promote lateral thinking and hold discussions on a wide range of topics with people you'd likely otherwise never meet.
-      </p>
-      <p class="lh-copy measure">
-        As its name implies, the ultimate goal is to serve as a source of inspiration. Some artists feel that they can only create as they're suffering, or when they escape out into the wilderness, or while under the influence of various substances, or all of the above.
-      </p>
-      <p class="1h-copy measure">
-        The Muse is proof that none of those things are necessary.
-      </p>
+      <slot></slot>
     </div>
   </article>
 </template>
+<script>
+export default {
+  props: ['content'],
+}
+</script>
 
-<style scope>
+<style lang="scss" scoped>
 .cf:before, .cf:after {
     content: " ";
     display: table;
@@ -34,6 +28,9 @@
 
 .fn {
     float: none;
+}
+.fl {
+    float: left;
 }
 
 .tracked {
@@ -52,9 +49,14 @@
     color: #777;
 }
 
-.pv5 {
+.pv5-ns {
     padding-top: 4rem;
     padding-bottom: 4rem;
+}
+
+.pv3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .ph3 {
@@ -86,10 +88,21 @@
     max-width: 30em;
 }
 
+@media screen and (max-width: 30em) {
+    .fl-s {
+        float: left;
+        _display: inline;
+    }
+}
+
 @media screen and (min-width: 30em) {
     .fl-ns {
         float: left;
         _display: inline;
+    }
+
+    .fn-ns {
+        float: none;
     }
 
     .w-50-ns {

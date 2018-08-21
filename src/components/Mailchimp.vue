@@ -27,7 +27,7 @@
     height: 160px;
   }
   .mailchimp {
-    margin-top: 160px;
+    margin-top: -160px;
   }
 
   @media screen and (min-width: 768px) {
